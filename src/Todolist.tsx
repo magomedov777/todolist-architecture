@@ -32,29 +32,30 @@ export function Todolist(props: PropsType) {
         } else {
             setError("Title is required");
         }
-    }
+    };
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setTitle(e.currentTarget.value)
-    }
+    };
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         setError(null);
         if (e.charCode === 13) {
             addTask();
         }
-    }
+    };
+
+    const deleteTodolistHandler = () => {
+        props.deleteTodolist(props.todolistID)
+    };
 
     const onAllClickHandler = () => props.changeFilter(props.todolistID, "all");
     const onActiveClickHandler = () => props.changeFilter(props.todolistID, "active");
     const onCompletedClickHandler = () => props.changeFilter(props.todolistID, "completed");
 
-    function deleteTodolistHandler() {
-        props.deleteTodolist(props.todolistID)
-    }
 
     return <div>
-        <h3>{props.title} <button onClick={deleteTodolistHandler}>x</button> </h3>
+        <h3>{props.title}<button onClick={deleteTodolistHandler}>X</button></h3>
         <div>
             <input value={title}
                 onChange={onChangeHandler}
@@ -91,4 +92,4 @@ export function Todolist(props: PropsType) {
                 onClick={onCompletedClickHandler}>Completed</button>
         </div>
     </div>
-}
+};
