@@ -12,7 +12,8 @@ export type TodolistsType = {
 }
 
 function App() {
-    
+    let todolistID1 = v1();
+    let todolistID2 = v1();
 
     let [todolists, setTodolists] = useState<Array<TodolistsType>>([
         { id: todolistID1, title: 'What to learn', filter: 'all' },
