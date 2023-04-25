@@ -4,7 +4,12 @@ export type AddItemPropsType = {
     addItem: (title: string) => void
 }
 
-
+export const AddItemForm = (props: AddItemPropsType) => {
+    let [title, setTitle] = useState("")
+    let [error, setError] = useState<string | null>(null)
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        setTitle(e.currentTarget.value)
+    };
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         setError(null);
