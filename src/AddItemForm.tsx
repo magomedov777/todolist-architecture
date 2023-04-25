@@ -11,12 +11,7 @@ export const AddItemForm = (props: AddItemPropsType) => {
         setTitle(e.currentTarget.value)
     };
 
-    const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-        setError(null);
-        if (e.charCode === 13) {
-            addTask();
-        }
-    };
+  
 
     const addTask = () => {
         if (title.trim() !== "") {
