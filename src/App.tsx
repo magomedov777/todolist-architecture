@@ -40,7 +40,9 @@ function App() {
         setTodolists(todolists.map(el => el.id === todolistId ? {...el, title: updateTitle} : el))
     }
 
-    
+    const updateTask = (todolistId: string, taskId: string, updateTitle: string) => {
+        setTasks({...tasks,[todolistId]:tasks[todolistId].map(el => el.id === taskId ? {...el, title: updateTitle} : el)})
+    }
 
     function removeTask(id: string, todolistId: string) {
         //достанем нужный массив по todolistId:
