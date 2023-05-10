@@ -1,7 +1,7 @@
-import React, { ChangeEvent, KeyboardEvent, useState } from 'react'
+import React, { ChangeEvent, KeyboardEvent, useState } from 'react';
 
 type PropsType = {
-    callBack: (newTitle: string) => void
+    callBack: (title: string) => void
 }
 
 export const AddItemForm = (props: PropsType) => {
@@ -9,7 +9,7 @@ export const AddItemForm = (props: PropsType) => {
     let [error, setError] = useState<string | null>(null)
 
     const addTask = () => {
-        let newTitle = title.trim()
+        let newTitle = title.trim();
         if (newTitle !== "") {
             props.callBack(newTitle);
             setTitle("");
@@ -28,12 +28,12 @@ export const AddItemForm = (props: PropsType) => {
             addTask();
         }
     }
-    return (
-        <div>
+  return (
+    <div>
             <input value={title}
-                onChange={onChangeHandler}
-                onKeyPress={onKeyPressHandler}
-                className={error ? "error" : ""}
+                   onChange={onChangeHandler}
+                   onKeyPress={onKeyPressHandler}
+                   className={error ? "error" : ""}
             />
             <button onClick={addTask}>+</button>
             {error && <div className="error-message">{error}</div>}
