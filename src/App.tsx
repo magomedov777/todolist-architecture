@@ -37,11 +37,11 @@ function App() {
     });
 
     const updateTask = (todolistId: string, taskId: string, updateTitle: string) => {
-        setTasks({...tasks,[todolistId]:tasks[todolistId].map(el => el.id === taskId ? {...el, title: updateTitle} : el)})
+        setTasks({ ...tasks, [todolistId]: tasks[todolistId].map(el => el.id === taskId ? { ...el, title: updateTitle } : el) })
     }
 
-    const updateTodolistTitle = (todolistId: string, updateTitle:string) => {
-        setTodolists(todolists.map(el => el.id === todolistId ? {...el, title: updateTitle} : el))
+    const updateTodolistTitle = (todolistId: string, updateTitle: string) => {
+        setTodolists(todolists.map(el => el.id === todolistId ? { ...el, title: updateTitle } : el))
     }
 
     function removeTask(id: string, todolistId: string) {
@@ -93,17 +93,25 @@ function App() {
         setTasks({ ...tasks });
     }
 
-    const addTodolistHandler = (newTitle: string) => {
-        const newTodolistId = v1()
-        const newTodolist: TodolistType = { id: newTodolistId, title: newTitle, filter: "all" }
-        setTodolists([newTodolist, ...todolists])
-        setTasks({...tasks,[newTodolistId]:[]})
-
-    }
+    
 
     return (
         <div className="App">
-            <AddItemForm callBack={addTodolistHandler}/>
+            <span style={
+                {
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    position: 'relative',
+                    top: '500px',
+                    left: '600px'
+                }
+            }>
+                <span>
+                    <b style={{ display: 'flex', justifyContent: 'center', fontSize: '15px' }}>Create Todolist</b><br />
+                    <AddItemForm callBack={addTodolistHandler} />
+                </span>
+            </span>
             {
                 todolists.map(tl => {
                     let allTodolistTasks = tasks[tl.id];
