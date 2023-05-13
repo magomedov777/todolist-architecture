@@ -19,7 +19,7 @@ type PropsType = {
     changeTaskStatus: (id: string, isDone: boolean, todolistId: string) => void
     removeTodolist: (id: string) => void
     updateTask: (todolistId: string, taskId: string, updateTitle: string) => void
-    updateTodolistTitle: (todolistId: string, updateTitle: string) => void
+    updateTodolist: (todolistId: string, updateTitle: string) => void
     filter: FilterValuesType
 }
 
@@ -33,25 +33,21 @@ export function Todolist(props: PropsType) {
     const addTaskHandler = (newTitle: string) => {
         props.addTask(newTitle, props.id)
     } 
-
     const updateTodolistTitleHandler = (updateTitle: string) => {
-        props.updateTodolistTitle(props.id, updateTitle)
+        props.updateTodolist(props.id, updateTitle)
     }
-    const updateTaskHandler = (taskId: string, updateTitle: string) => {
+
+    const updateTitleTaskHandler = (taskId: string, updateTitle: string) => {
         props.updateTask(props.id, taskId, updateTitle)
     }
 
     return <div>
         <h3> 
-           
             <EditableSpan oldTitle={props.title} callBack={updateTodolistTitleHandler}/>
-
-    
             {/* {props.title} */}
             <button onClick={removeTodolist}>x</button>
         </h3>
         <AddItemForm callBack={addTaskHandler}/>
-        
         <ul>
             {
                 props.tasks.map(t => {
@@ -60,12 +56,13 @@ export function Todolist(props: PropsType) {
                         let newIsDoneValue = e.currentTarget.checked;
                         props.changeTaskStatus(t.id, newIsDoneValue, props.id);
                     }
+
                     
 
                     return <li key={t.id} className={t.isDone ? "is-done" : ""}>
                         <input type="checkbox" onChange={onChangeHandler} checked={t.isDone} />
                         {/* <span>{t.title}</span> */}
-                        <EditableSpan callBack={(updateTitle) => updateTaskHandler(t.id, updateTitle)} oldTitle={t.title}/>
+                        <EditableSpan callBack={(updateTitle) => updateTitleTaskHandler(t.id, updateTitle)} oldTitle={t.title}/>
                         <button onClick={onClickHandler}>x</button>
                     </li>
                 })
