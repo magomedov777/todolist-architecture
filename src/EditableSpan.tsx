@@ -17,13 +17,12 @@ export const EditableSpan = (props: PropsType) => {
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setUpdateTitle(e.currentTarget.value)
     }
-
     const addTask = () => {
         props.callBack(updateTitle)
     }
     return (
         edit
-            ? <input onBlur={onDoubleClickHandler} onChange={onChangeHandler} value={updateTitle} type="text" autoFocus/>
+            ? <input value={updateTitle} onBlur={onDoubleClickHandler} onChange={onChangeHandler} type="text" autoFocus/>
             : <span onDoubleClick={onDoubleClickHandler}>{props.oldTitle}</span>
     )
 }

@@ -37,13 +37,12 @@ function App() {
     });
 
     const updateTask = (todolistId: string, taskId: string, updateTitle: string) => {
-        setTasks({...tasks,[todolistId]:tasks[todolistId].map(el => el.id === taskId ? {...el, title: updateTitle} : el)})
+        setTasks({...tasks,[todolistId]:tasks[todolistId].map(el => el.id === taskId ? {...el, title:updateTitle} : el)})
     }
 
-    const updateTodolist = (todolistId: string, updateTitle: string) => {
+    const updateTodolistTitle = (todolistId: string, updateTitle: string) => {
         setTodolists(todolists.map(el => el.id === todolistId ? {...el, title: updateTitle} : el))
     }
-
 
     function removeTask(id: string, todolistId: string) {
         //достанем нужный массив по todolistId:
@@ -129,7 +128,7 @@ function App() {
                         filter={tl.filter}
                         removeTodolist={removeTodolist}
                         updateTask={updateTask}
-                        updateTodolist={updateTodolist}
+                        updateTodolistTitle={updateTodolistTitle}
                     />
                 })
             }
