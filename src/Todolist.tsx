@@ -2,6 +2,7 @@ import React, { ChangeEvent, useState, KeyboardEvent } from 'react';
 import { FilterValuesType } from './App';
 import { AddItemForm } from './AddItemForm';
 import { EditableSpan } from './EditableSpan';
+import { SuperCheckbox } from './SuperCheckbox';
 
 export type TaskType = {
     id: string
@@ -41,6 +42,11 @@ export function Todolist(props: PropsType) {
         props.updateTask(props.id, taskId, updateTitle)
     }
 
+    const onChangeHandler = (tID: string, newIsDone: boolean) => {
+                        // let newIsDoneValue = e.currentTarget.checked;
+                        props.changeTaskStatus(tID, newIsDone, props.id);
+                    }
+
     return <div>
         <h3> 
             <EditableSpan oldTitle={props.title} callBack={updateTodolistTitleHandler}/>
@@ -52,15 +58,13 @@ export function Todolist(props: PropsType) {
             {
                 props.tasks.map(t => {
                     const onClickHandler = () => props.removeTask(t.id, props.id)
-                    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-                        let newIsDoneValue = e.currentTarget.checked;
-                        props.changeTaskStatus(t.id, newIsDoneValue, props.id);
-                    }
-
-                   
-
-                    return <li key={t.id} className={t.isDone ? "is-done" : ""}>
-                        <input type="checkbox" onChange={onChangeHandler} checked={t.isDone} />
+                    // const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+                    //     let newIsDoneValue = e.currentTarget.checked;
+                    //     props.changeTaskStatus(t.id, newIsDoneValue, props.id);
+                    // }
+        return <li key={t.id} className={t.isDone ? "is-done" : ""}>
+                    <SuperCheckbox callBack={(newIsDone) => onChangeHandler(t.id, newIsDone)} isDone={t.isDone}/>
+                        {/* <input type="checkbox" onChange={onChangeHandler} checked={t.isDone} /> */}
                         {/* <span>{t.title}</span> */}
                         <EditableSpan callBack={(updateTitle) => updateTaskHandler(t.id, updateTitle)} oldTitle={t.title}/>
                         <button onClick={onClickHandler}>x</button>
