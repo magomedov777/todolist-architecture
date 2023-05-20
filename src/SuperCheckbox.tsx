@@ -2,7 +2,7 @@ import React, { ChangeEvent } from 'react'
 
 type PropsType = {
     isDone: boolean
-    callBack: (newIsDone: boolean) => void
+    callBack: () => void
 }
 
 export const SuperCheckbox = (props: PropsType) => {
