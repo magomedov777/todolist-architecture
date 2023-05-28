@@ -12,7 +12,7 @@ type TodolistType = {
 }
 
 type TasksStateType = {
-    [key: stri ng]: Array<TaskType>
+    [key: string]: Array<TaskType>
 }
 
 
