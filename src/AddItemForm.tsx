@@ -5,7 +5,6 @@ type PropsType = {
 }
 
 export const AddItemForm = (props: PropsType) => {
-    let [title, setTitle] = useState("")
     let [error, setError] = useState<string | null>(null)
 
     const addTask = () => {
