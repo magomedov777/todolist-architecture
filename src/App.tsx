@@ -37,11 +37,11 @@ function App() {
     });
 
     const updateTask = (todolistId: string, taskId: string, updateTitle: string) => {
-        setTasks({ ...tasks, [todolistId]: tasks[todolistId].map(el => el.id === taskId ? { ...el, title: updateTitle } : el) })
+        setTasks({...tasks,[todolistId]:tasks[todolistId].map(el => el.id === taskId ? {...el, title: updateTitle} : el)})
     };
 
     const updateTodolistTitle = (todolistId: string, updateTitle: string) => {
-        setTodolists(todolists.map(el => el.id === todolistId ? { ...el, title: updateTitle } : el))
+        setTodolists(todolists.map(el => el.id === todolistId ? {...el, title: updateTitle} : el))
     };
 
     function removeTask(id: string, todolistId: string) {
@@ -76,7 +76,7 @@ function App() {
         //     // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
         //     setTasks({ ...tasks });
         // }
-        setTasks({ ...tasks, [todolistId]: tasks[todolistId].map(el => el.id === id ? { ...el, isDone: isDone } : el) })
+        setTasks({...tasks,[todolistId]:tasks[todolistId].map(el => el.id === id ? {...el, isDone:isDone} : el)})
     }
 
     function changeFilter(value: FilterValuesType, todolistId: string) {
