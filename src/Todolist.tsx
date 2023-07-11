@@ -4,6 +4,12 @@ import { AddItemForm } from './AddItemForm';
 import { EditableSpan } from './EditableSpan';
 import { SuperCheckbox } from './SuperCheckbox';
 
+export type TaskType = {
+    id: string
+    title: string
+    isDone: boolean
+}
+
 
 
 export function Todolist(props: PropsType) {
