@@ -102,7 +102,8 @@ function App() {
     const addTodolistHandler = (newTitle: string) => {
         const newTodolistId = v1()
         const newTodolist: TodolistType = { id: newTodolistId, title: newTitle, filter: "all" }
-\        setTasks({ ...tasks, [newTodolistId]: [] })
+        setTodolists([newTodolist, ...todolists])
+        setTasks({ ...tasks, [newTodolistId]: [] })
 
     }
 
