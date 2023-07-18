@@ -18,7 +18,6 @@ type TasksStateType = {
 
 function App() {
     let todolistId1 = v1();
-    let todolistId2 = v1();
 
     let [todolists, setTodolists] = useState<Array<TodolistType>>([
         { id: todolistId1, title: "What to learn", filter: "all" },
