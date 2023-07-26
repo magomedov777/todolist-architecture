@@ -99,13 +99,7 @@ function App() {
         delete tasks[id]
     }
 
-    const addTodolistHandler = (newTitle: string) => {
-        const newTodolistId = v1()
-        const newTodolist: TodolistType = { id: newTodolistId, title: newTitle, filter: "all" }
-        setTodolists([newTodolist, ...todolists])
-        setTasks({ ...tasks, [newTodolistId]: [] })
-
-    }
+    
 
     return (
         <div className="App">
