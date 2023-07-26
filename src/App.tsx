@@ -88,7 +88,16 @@ function App() {
         setTodolists(todolists.map(el => el.id === todolistId ? { ...el, filter: value } : el))
     }
 
-    
+    function removeTodolist(id: string) {
+        // // засунем в стейт список тудулистов, id которых не равны тому, который нужно выкинуть
+        // setTodolists(todolists.filter(tl => tl.id != id));
+        // // удалим таски для этого тудулиста из второго стейта, где мы храним отдельно таски
+        // delete tasks[id]; // удаляем св-во из объекта... значением которого являлся массив тасок
+        // // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
+        // setTasks({ ...tasks });
+        setTodolists(todolists.filter(el => el.id !== id))
+        delete tasks[id]
+    }
 
     const addTodolistHandler = (newTitle: string) => {
         const newTodolistId = v1()
