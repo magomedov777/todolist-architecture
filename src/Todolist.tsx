@@ -49,7 +49,7 @@ export function Todolist(props: PropsType) {
 
     return <div>
         <h3>
-            <EditableSpan oldTitle={props.title} callBack={updateTodolistTitleHandler} />
+            <EditableSpan oldTitle={props.title} \ />
             {/* {props.title} */}
             <button onClick={removeTodolist}>x</button>
         </h3>
