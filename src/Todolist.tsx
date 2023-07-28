@@ -43,7 +43,6 @@ export function Todolist(props: PropsType) {
     }
 
     const onChangeHandler = (tID: string, newIsDone: boolean) => {
-        // let newIsDoneValue = e.currentTarget.checked;
         props.changeTaskStatus(tID, newIsDone, props.id);
     }
 
