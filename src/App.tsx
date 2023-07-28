@@ -79,7 +79,14 @@ function App() {
         setTasks({...tasks,[todolistId]:tasks[todolistId].map(el => el.id === id ? {...el, isDone:isDone} : el)})
     }
 
-    
+    function changeFilter(value: FilterValuesType, todolistId: string) {
+        // let todolist = todolists.find(tl => tl.id === todolistId);
+        // if (todolist) {
+        //     todolist.filter = value;
+        //     setTodolists([...todolists])
+        // }
+        setTodolists(todolists.map(el => el.id === todolistId ? { ...el, filter: value } : el))
+    }
 
     function removeTodolist(id: string) {
         // // засунем в стейт список тудулистов, id которых не равны тому, который нужно выкинуть
