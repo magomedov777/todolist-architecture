@@ -15,9 +15,6 @@ type TasksStateType = {
     [key: string]: Array<TaskType>
 }
 
-//new id
-
-
 function App() {
     let todolistId1 = v1();
     let todolistId2 = v1();
