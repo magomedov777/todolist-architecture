@@ -10,6 +10,9 @@ export type TaskType = {
     isDone: boolean
 }
 
+//02.08.23  5:57 a.m.
+
+
 type PropsType = {
     id: string
     title: string
