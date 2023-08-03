@@ -12,7 +12,6 @@ type TodolistType = {
 }
 
 type TasksStateType = {
-    [key: string]: Array<TaskType>
 }
 
 function App() {
