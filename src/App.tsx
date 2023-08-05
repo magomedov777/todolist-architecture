@@ -42,7 +42,7 @@ function App() {
 
     //new syntax
 
-    const updateTodolistTitle = (todolistId: string, ) => {
+    const updateTodolistTitle = (todolistId: string, updateTitle: string) => {
         setTodolists(todolists.map(el => el.id === todolistId ? {...el, title: updateTitle} : el))
     };
 
