@@ -12,6 +12,7 @@ type TodolistType = {
 }
 
 type TasksStateType = {
+    [key: string]: Array<TaskType>
 }
 
 function App() {
@@ -37,6 +38,9 @@ function App() {
     const updateTask = (todolistId: string, taskId: string, updateTitle: string) => {
         setTasks({...tasks,[todolistId]:tasks[todolistId].map(el => el.id === taskId ? {...el, title: updateTitle} : el)})
     };
+
+
+    //new syntax
 
     const updateTodolistTitle = (todolistId: string, updateTitle: string) => {
         setTodolists(todolists.map(el => el.id === todolistId ? {...el, title: updateTitle} : el))
@@ -78,12 +82,12 @@ function App() {
     }
 
     function changeFilter(value: FilterValuesType, todolistId: string) {
-        // let todolist = todolists.find(tl => tl.id === todolistId);
-        // if (todolist) {
-        //     todolist.filter = value;
-        //     setTodolists([...todolists])
-        // }
-        setTodolists(todolists.map(el => el.id === todolistId ? { ...el, filter: value } : el))
+        let todolist = todolists.find(tl => tl.id === todolistId);
+        if (todolist) {
+            todolist.filter = value;
+            setTodolists([...todolists])
+        }
+        // setTodolists(todolists.map(el => el.id === todolistId ? { ...el, filter: value } : el))
     }
 
     function removeTodolist(id: string) {
