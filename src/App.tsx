@@ -5,6 +5,8 @@ import { v1 } from 'uuid';
 import { AddItemForm } from './AddItemForm';
 
 export type FilterValuesType = "all" | "active" | "completed";
+
+
 type TodolistType = {
     id: string
     title: string
