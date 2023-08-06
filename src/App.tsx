@@ -87,7 +87,7 @@ function App() {
         //     todolist.filter = value;
         //     setTodolists([...todolists])
         // }
-        // setTodolists(todolists.map(el => el.id === todolistId ? { ...el, filter: value } : el))
+        setTodolists(todolists.map(el => el.id === todolistId ? { ...el, filter: value } : el))
     }
 
     function removeTodolist(id: string) {
