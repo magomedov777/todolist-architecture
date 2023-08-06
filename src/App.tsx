@@ -82,11 +82,11 @@ function App() {
     }
 
     function changeFilter(value: FilterValuesType, todolistId: string) {
-        let todolist = todolists.find(tl => tl.id === todolistId);
-        if (todolist) {
-            todolist.filter = value;
-            setTodolists([...todolists])
-        }
+        // let todolist = todolists.find(tl => tl.id === todolistId);
+        // if (todolist) {
+        //     todolist.filter = value;
+        //     setTodolists([...todolists])
+        // }
         // setTodolists(todolists.map(el => el.id === todolistId ? { ...el, filter: value } : el))
     }
 
