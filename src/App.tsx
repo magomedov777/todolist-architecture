@@ -47,6 +47,16 @@ function App() {
         setTodolists(todolists.map(el => el.id === todolistId ? {...el, title: updateTitle} : el))
     };
 
+    function removeTask(id: string, todolistId: string) {
+        // //достанем нужный массив по todolistId:
+        // let todolistTasks = tasks[todolistId];
+        // // перезапишем в этом объекте массив для нужного тудулиста отфилтрованным массивом:
+        // tasks[todolistId] = todolistTasks.filter(t => t.id != id);
+        // // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
+        // setTasks({ ...tasks });
+        setTasks({ ...tasks, [todolistId]: tasks[todolistId].filter(el => el.id !== id) })
+    }
+
     
 
     function changeStatus(id: string, isDone: boolean, todolistId: string) {
