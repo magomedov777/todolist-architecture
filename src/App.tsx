@@ -39,7 +39,7 @@ function App() {
     const updateTask = (todolistId: string, taskId: string, updateTitle: string) => {
         setTasks({...tasks,[todolistId]:tasks[todolistId].map(el => el.id === taskId ? {...el, title: updateTitle} : el)})
     };
-    
+
     const updateTodolistTitle = (todolistId: string, updateTitle: string) => {
         setTodolists(todolists.map(el => el.id === todolistId ? {...el, title: updateTitle} : el))
     };
@@ -56,13 +56,13 @@ function App() {
 
     function addTask(title: string, todolistId: string) {
         let task = { id: v1(), title: title, isDone: false };
-        // //достанем нужный массив по todolistId:
-        // let todolistTasks = tasks[todolistId];
-        // // перезапишем в этом объекте массив для нужного тудулиста копией, добавив в начало новую таску:
-        // tasks[todolistId] = [task, ...todolistTasks];
-        // // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
-        // setTasks({ ...tasks });
-        setTasks({ ...tasks, [todolistId]: [task, ...tasks[todolistId]] })
+        //достанем нужный массив по todolistId:
+        let todolistTasks = tasks[todolistId];
+        // перезапишем в этом объекте массив для нужного тудулиста копией, добавив в начало новую таску:
+        tasks[todolistId] = [task, ...todolistTasks];
+        // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
+        setTasks({ ...tasks });
+        // setTasks({ ...tasks, [todolistId]: [task, ...tasks[todolistId]] })
     }
 
     function changeStatus(id: string, isDone: boolean, todolistId: string) {
