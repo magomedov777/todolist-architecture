@@ -1,9 +1,6 @@
 import React, { ChangeEvent, useState } from 'react';
 
-type PropsType = {
-    oldTitle: string
-    callBack: (updateTitle: string) => void
-}
+
 
 export const EditableSpan = (props: PropsType) => {
     const [updateTitle, setUpdateTitle] = useState(props.oldTitle)
