@@ -8,9 +8,7 @@ export type FilterValuesType = "all" | "active" | "completed";
 
 
 
-type TasksStateType = {
-    [key: string]: Array<TaskType>
-}
+
 
 function App() {
     let todolistId1 = v1();
