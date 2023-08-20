@@ -20,8 +20,6 @@ export const EditableSpan = (props: PropsType) => {
     // const addTask = () => {
     //     props.callBack(updateTitle)
     // }
-
-    //prev variant
     const addTask = () => {
         props.callBack(updateTitle)
     }
