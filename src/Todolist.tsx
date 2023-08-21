@@ -34,11 +34,18 @@ export function Todolist(props: PropsType) {
     const addTaskHandler = (updateTitle: string) => {
         props.addTask(updateTitle, props.id)
     }
-    
+    const updateTodolistTitleHandler = (updateTitle: string) => {
+        props.updateTodolistTitle(props.id, updateTitle)
+    }
 
-    
+    const updateTaskHandler = (taskId: string, updateTitle: string) => {
+        props.updateTask(props.id, taskId, updateTitle)
+    }
 
-    
+    const onChangeHandler = (tID: string, newIsDone: boolean) => {
+        props.changeTaskStatus(tID, newIsDone, props.id);
+         // let newIsDoneValue = e.currentTarget.checked;
+    }
 
     return <div>
         <h3>
