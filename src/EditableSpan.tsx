@@ -4,12 +4,7 @@ import React, { ChangeEvent, useState } from 'react';
 
 export const EditableSpan = (props: PropsType) => {
 
-    const onDoubleClickHandler = () => {
-        setEdit(!edit)
-        if (edit) {
-            addTask()
-        }
-    }
+
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setUpdateTitle(e.currentTarget.value)
     }
