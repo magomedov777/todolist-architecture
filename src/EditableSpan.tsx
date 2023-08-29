@@ -17,11 +17,7 @@ export const EditableSpan = (props: PropsType) => {
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setUpdateTitle(e.currentTarget.value)
     }
-    // const addTask = () => {
-    //     props.callBack(updateTitle)
-    // }
 
-    //new variant
     const addTask = () => {
         props.callBack(updateTitle)
     }
