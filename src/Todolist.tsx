@@ -34,6 +34,7 @@ export function Todolist(props: PropsType) {
     const addTaskHandler = (updateTitle: string) => {
         props.addTask(updateTitle, props.id)
     }
+
     const updateTodolistTitleHandler = (updateTitle: string) => {
         props.updateTodolistTitle(props.id, updateTitle)
     }
