@@ -34,9 +34,7 @@ export function Todolist(props: PropsType) {
 
 
 
-    const updateTaskHandler = (taskId: string, updateTitle: string) => {
-        props.updateTask(props.id, taskId, updateTitle)
-    }
+
 
     const onChangeHandler = (tID: string, newIsDone: boolean) => {
         props.changeTaskStatus(tID, newIsDone, props.id);
