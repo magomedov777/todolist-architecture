@@ -12,9 +12,7 @@ type TodolistType = {
     filter: FilterValuesType
 }
 
-type TasksStateType = {
-    [key: string]: Array<TaskType>
-}
+
 
 function App() {
     let todolistId1 = v1();
