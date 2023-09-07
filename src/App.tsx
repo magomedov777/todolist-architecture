@@ -4,7 +4,6 @@ import { TaskType, Todolist } from './Todolist';
 import { v1 } from 'uuid';
 import { AddItemForm } from './AddItemForm';
 
-export type FilterValuesType = "all" | "active" | "completed";
 
 
 
