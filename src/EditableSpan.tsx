@@ -9,7 +9,7 @@ export const EditableSpan = (props: PropsType) => {
     const onDoubleClickHandler = () => {
         setEdit(!edit)
         if (edit) {
-
+            addTask()
         }
     }
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
