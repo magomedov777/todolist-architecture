@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useState } from 'react';
 
 type PropsType = {
+    oldTitle: string
 }
 
 export const EditableSpan = (props: PropsType) => {
