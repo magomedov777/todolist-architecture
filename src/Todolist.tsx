@@ -31,7 +31,22 @@ export function Todolist(props: PropsType) {
     const onActiveClickHandler = () => props.changeFilter("active", props.id);
     const onCompletedClickHandler = () => props.changeFilter("completed", props.id);
 
+    const addTaskHandler = (updateTitle: string) => {
+        props.addTask(updateTitle, props.id)
+    }
 
+    const updateTodolistTitleHandler = (updateTitle: string) => {
+        props.updateTodolistTitle(props.id, updateTitle)
+    }
+
+    const updateTaskHandler = (taskId: string, updateTitle: string) => {
+        props.updateTask(props.id, taskId, updateTitle)
+    }
+
+    const onChangeHandler = (tID: string, newIsDone: boolean) => {
+        props.changeTaskStatus(tID, newIsDone, props.id);
+        // let newIsDoneValue = e.currentTarget.checked;
+    }
 
     return <div>
         <h3>
@@ -42,7 +57,21 @@ export function Todolist(props: PropsType) {
         <AddItemForm callBack={addTaskHandler} />
         <ul>
             {
+                props.tasks.map(t => {
+                    const onClickHandler = () => props.removeTask(t.id, props.id)
+                    // const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+                    //     let newIsDoneValue = e.currentTarget.checked;
+                    //     props.changeTaskStatus(t.id, newIsDoneValue, props.id);
+                    // }
 
+                    return <li key={t.id} className={t.isDone ? "is-done" : ""}>
+                        <SuperCheckbox callBack={(newIsDone) => onChangeHandler(t.id, newIsDone)} isDone={t.isDone} />
+                        {/* <input type="checkbox" onChange={onChangeHandler} checked={t.isDone} /> */}
+                        {/* <span>{t.title}</span> */}
+                        <EditableSpan callBack={(updateTitle) => updateTaskHandler(t.id, updateTitle)} oldTitle={t.title} />
+                        <button onClick={onClickHandler}>x</button>
+                    </li>
+                })
             }
         </ul>
         <div>
