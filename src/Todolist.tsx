@@ -42,21 +42,7 @@ export function Todolist(props: PropsType) {
         <AddItemForm callBack={addTaskHandler} />
         <ul>
             {
-                props.tasks.map(t => {
-                    const onClickHandler = () => props.removeTask(t.id, props.id)
-                    // const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-                    //     let newIsDoneValue = e.currentTarget.checked;
-                    //     props.changeTaskStatus(t.id, newIsDoneValue, props.id);
-                    // }
 
-                    return <li key={t.id} className={t.isDone ? "is-done" : ""}>
-                        <SuperCheckbox callBack={(newIsDone) => onChangeHandler(t.id, newIsDone)} isDone={t.isDone} />
-                        {/* <input type="checkbox" onChange={onChangeHandler} checked={t.isDone} /> */}
-                        {/* <span>{t.title}</span> */}
-                        <EditableSpan callBack={(updateTitle) => updateTaskHandler(t.id, updateTitle)} oldTitle={t.title} />
-                        <button onClick={onClickHandler}>x</button>
-                    </li>
-                })
             }
         </ul>
         <div>
