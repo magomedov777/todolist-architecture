@@ -4,6 +4,7 @@ import { AddItemForm } from './AddItemForm';
 import { EditableSpan } from './EditableSpan';
 import { SuperCheckbox } from './SuperCheckbox';
 
+
 export type TaskType = {
     id: string
     title: string
@@ -23,6 +24,7 @@ type PropsType = {
     removeTodolist: (id: string) => void
     filter: FilterValuesType
 }
+
 
 export function Todolist(props: PropsType) {
     const removeTodolist = () => props.removeTodolist(props.id)
