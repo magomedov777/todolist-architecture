@@ -47,7 +47,6 @@ export function Todolist(props: PropsType) {
 
     const onChangeHandler = (tID: string, newIsDone: boolean) => {
         props.changeTaskStatus(tID, newIsDone, props.id);
-        // let newIsDoneValue = e.currentTarget.checked;
     }
 
     return <div>
@@ -61,10 +60,7 @@ export function Todolist(props: PropsType) {
             {
                 props.tasks.map(t => {
                     const onClickHandler = () => props.removeTask(t.id, props.id)
-                    // const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-                    //     let newIsDoneValue = e.currentTarget.checked;
-                    //     props.changeTaskStatus(t.id, newIsDoneValue, props.id);
-                    // }
+
 
                     return <li key={t.id} className={t.isDone ? "is-done" : ""}>
                         <SuperCheckbox callBack={(newIsDone) => onChangeHandler(t.id, newIsDone)} isDone={t.isDone} />
