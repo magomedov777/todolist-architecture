@@ -4,17 +4,8 @@ import { TaskType, Todolist } from './Todolist';
 import { v1 } from 'uuid';
 import { AddItemForm } from './AddItemForm';
 
-export type FilterValuesType = "all" | "active" | "completed";
 
-type TodolistType = {
-    id: string
-    title: string
-    filter: FilterValuesType
-}
 
-type TasksStateType = {
-    [key: string]: Array<TaskType>
-}
 
 function App() {
     let todolistId1 = v1();
