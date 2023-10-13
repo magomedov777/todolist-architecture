@@ -5,25 +5,7 @@ import { EditableSpan } from './EditableSpan';
 import { SuperCheckbox } from './SuperCheckbox';
 
 
-export type TaskType = {
-    id: string
-    title: string
-    isDone: boolean
-}
 
-type PropsType = {
-    id: string
-    title: string
-    tasks: Array<TaskType>
-    removeTask: (taskId: string, todolistId: string) => void
-    changeFilter: (value: FilterValuesType, todolistId: string) => void
-    addTask: (title: string, todolistId: string) => void
-    changeTaskStatus: (id: string, isDone: boolean, todolistId: string) => void
-    updateTask: (todolistId: string, taskId: string, updateTitle: string) => void
-    updateTodolistTitle: (todolistId: string, updateTitle: string) => void
-    removeTodolist: (id: string) => void
-    filter: FilterValuesType
-}
 
 
 export function Todolist(props: PropsType) {
@@ -61,15 +43,8 @@ export function Todolist(props: PropsType) {
             {
                 props.tasks.map(t => {
                     const onClickHandler = () => props.removeTask(t.id, props.id)
-                    // const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-                    //     let newIsDoneValue = e.currentTarget.checked;
-                    //     props.changeTaskStatus(t.id, newIsDoneValue, props.id);
-                    // }
-
                     return <li key={t.id} className={t.isDone ? "is-done" : ""}>
                         <SuperCheckbox callBack={(newIsDone) => onChangeHandler(t.id, newIsDone)} isDone={t.isDone} />
-                        {/* <input type="checkbox" onChange={onChangeHandler} checked={t.isDone} /> */}
-                        {/* <span>{t.title}</span> */}
                         <EditableSpan callBack={(updateTitle) => updateTaskHandler(t.id, updateTitle)} oldTitle={t.title} />
                         <button onClick={onClickHandler}>x</button>
                     </li>
@@ -91,3 +66,22 @@ export function Todolist(props: PropsType) {
 }
 
 
+export type TaskType = {
+    id: string
+    title: string
+    isDone: boolean
+}
+
+type PropsType = {
+    id: string
+    title: string
+    tasks: Array<TaskType>
+    removeTask: (taskId: string, todolistId: string) => void
+    changeFilter: (value: FilterValuesType, todolistId: string) => void
+    addTask: (title: string, todolistId: string) => void
+    changeTaskStatus: (id: string, isDone: boolean, todolistId: string) => void
+    updateTask: (todolistId: string, taskId: string, updateTitle: string) => void
+    updateTodolistTitle: (todolistId: string, updateTitle: string) => void
+    removeTodolist: (id: string) => void
+    filter: FilterValuesType
+}
