@@ -5,11 +5,36 @@ import { EditableSpan } from './EditableSpan';
 import { SuperCheckbox } from './SuperCheckbox';
 
 
+export type TaskType = {
+    id: string
+    title: string
+    isDone: boolean
+}
 
-
+type PropsType = {
+    id: string
+    title: string
+    tasks: Array<TaskType>
+    removeTask: (taskId: string, todolistId: string) => void
+    changeFilter: (value: FilterValuesType, todolistId: string) => void
+    addTask: (title: string, todolistId: string) => void
+    changeTaskStatus: (id: string, isDone: boolean, todolistId: string) => void
+    updateTask: (todolistId: string, taskId: string, updateTitle: string) => void
+    updateTodolistTitle: (todolistId: string, updateTitle: string) => void
+    removeTodolist: (id: string) => void
+    filter: FilterValuesType
+}
 
 export function Todolist(props: PropsType) {
+    const removeTodolist = () => props.removeTodolist(props.id)
 
+    const onAllClickHandler = () => props.changeFilter("all", props.id);
+    const onActiveClickHandler = () => props.changeFilter("active", props.id);
+    const onCompletedClickHandler = () => props.changeFilter("completed", props.id);
+
+    const addTaskHandler = (updateTitle: string) => {
+        props.addTask(updateTitle, props.id)
+    }
 
     const updateTodolistTitleHandler = (updateTitle: string) => {
         props.updateTodolistTitle(props.id, updateTitle)
@@ -21,13 +46,11 @@ export function Todolist(props: PropsType) {
 
     const onChangeHandler = (tID: string, newIsDone: boolean) => {
         props.changeTaskStatus(tID, newIsDone, props.id);
-        // let newIsDoneValue = e.currentTarget.checked;
     }
 
     return <div>
         <h3>
             <EditableSpan oldTitle={props.title} callBack={updateTodolistTitleHandler} />
-            {/* {props.title} */}
             <button onClick={removeTodolist}>x</button>
         </h3>
         <AddItemForm callBack={addTaskHandler} />
@@ -58,22 +81,3 @@ export function Todolist(props: PropsType) {
 }
 
 
-export type TaskType = {
-    id: string
-    title: string
-    isDone: boolean
-}
-
-type PropsType = {
-    id: string
-    title: string
-    tasks: Array<TaskType>
-    removeTask: (taskId: string, todolistId: string) => void
-    changeFilter: (value: FilterValuesType, todolistId: string) => void
-    addTask: (title: string, todolistId: string) => void
-    changeTaskStatus: (id: string, isDone: boolean, todolistId: string) => void
-    updateTask: (todolistId: string, taskId: string, updateTitle: string) => void
-    updateTodolistTitle: (todolistId: string, updateTitle: string) => void
-    removeTodolist: (id: string) => void
-    filter: FilterValuesType
-}
