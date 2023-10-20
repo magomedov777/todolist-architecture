@@ -1,11 +1,11 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, FC, useState } from 'react';
 
-type PropsType = {
+type Props = {
     oldTitle: string
     callBack: (updateTitle: string) => void
 }
-export const EditableSpan = (props: PropsType) => {
-    const [updateTitle, setUpdateTitle] = useState(props.oldTitle)
+export const EditableSpan: FC<Props> = ({ oldTitle, callBack }) => {
+    const [updateTitle, setUpdateTitle] = useState(oldTitle)
     const [edit, setEdit] = useState(false)
     const onDoubleClickHandler = () => {
         setEdit(!edit)
@@ -18,11 +18,11 @@ export const EditableSpan = (props: PropsType) => {
     }
 
     const addTask = () => {
-        props.callBack(updateTitle)
+        callBack(updateTitle)
     }
     return (
         edit
             ? <input value={updateTitle} onBlur={onDoubleClickHandler} onChange={onChangeHandler} type="text" autoFocus />
-            : <span onDoubleClick={onDoubleClickHandler}>{props.oldTitle}</span>
+            : <span onDoubleClick={onDoubleClickHandler}>{oldTitle}</span>
     )
 }
