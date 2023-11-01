@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import './App.css';
 import { Todolist } from './Todolist';
 import { v1 } from 'uuid';
@@ -22,7 +22,7 @@ export type TaskType = {
     isDone: boolean
 }
 
-const App = () => {
+const App: FC = () => {
     let todolistId1 = v1();
     let todolistId2 = v1();
 
