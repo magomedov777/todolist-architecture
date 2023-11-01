@@ -1,17 +1,18 @@
-import React, { ChangeEvent, KeyboardEvent, useState } from 'react';
+import React, { ChangeEvent, FC, KeyboardEvent, useState } from 'react';
+import { JsxElement } from 'typescript';
 
-type PropsType = {
+type Props = {
     callBack: (newTitle: string) => void
 }
 
-export const AddItemForm = (props: PropsType) => {
+export const AddItemForm: FC<Props> = ({ callBack }) => {
     let [title, setTitle] = useState("")
     let [error, setError] = useState<string | null>(null)
 
     const addTask = () => {
         let newTitle = title.trim();
         if (newTitle !== "") {
-            props.callBack(newTitle);
+            callBack(newTitle);
             setTitle("");
         } else {
             setError("Title is required");
@@ -24,7 +25,7 @@ export const AddItemForm = (props: PropsType) => {
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         setError(null);
-        if (e.charCode === 13) {
+        if (e.key === 'Enter') {
             addTask();
         }
     }
