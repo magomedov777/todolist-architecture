@@ -1,5 +1,4 @@
 import React, { ChangeEvent, FC, KeyboardEvent, useState } from 'react';
-import { JsxElement } from 'typescript';
 
 type Props = {
     callBack: (newTitle: string) => void

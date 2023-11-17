@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState, KeyboardEvent, FC } from 'react';
+import React, { FC } from 'react';
 import { FilterValuesType, TaskType } from './App';
 import { AddItemForm } from './AddItemForm';
 import { EditableSpan } from './EditableSpan';
