@@ -63,13 +63,8 @@ const App: FC = () => {
         setTasks({ ...tasks, [todolistId]: tasks[todolistId].map(el => el.id === id ? { ...el, isDone: isDone } : el) })
     }
 
-    function changeFilter(value: FilterValuesType, todolistId: string) {
+    const changeFilter = (value: FilterValuesType, todolistId: string) => {
         setTodolists(todolists.map(el => el.id === todolistId ? { ...el, filter: value } : el))
-        // let todolist = todolists.find(tl => tl.id === todolistId);
-        // if (todolist) {
-        //     todolist.filter = value;
-        //     setTodolists([...todolists])
-        // }
     }
 
     function removeTodolist(id: string) {
