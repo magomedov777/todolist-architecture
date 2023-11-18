@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 import './App.css';
 import { Todolist } from './Todolist';
 import { v1 } from 'uuid';
@@ -42,9 +42,9 @@ const App: FC = () => {
         ]
     });
 
-    const updateTask = (todolistId: string, taskId: string, updateTitle: string) => {
+    const updateTask = useCallback((todolistId: string, taskId: string, updateTitle: string) => {
         setTasks({ ...tasks, [todolistId]: tasks[todolistId].map(el => el.id === taskId ? { ...el, title: updateTitle } : el) })
-    };
+    }, [tasks])
 
     const updateTodolistTitle = (todolistId: string, updateTitle: string) => {
         setTodolists(todolists.map(el => el.id === todolistId ? { ...el, title: updateTitle } : el))
