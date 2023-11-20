@@ -46,9 +46,9 @@ const App: FC = () => {
         setTasks({ ...tasks, [todolistId]: tasks[todolistId].map(el => el.id === taskId ? { ...el, title: updateTitle } : el) })
     }, [tasks])
 
-    const updateTodolistTitle = (todolistId: string, updateTitle: string) => {
+    const updateTodolistTitle = useCallback((todolistId: string, updateTitle: string) => {
         setTodolists(todolists.map(el => el.id === todolistId ? { ...el, title: updateTitle } : el))
-    };
+    }, [todolists])
 
     const removeTask = (id: string, todolistId: string) => {
         setTasks({ ...tasks, [todolistId]: tasks[todolistId].filter(el => el.id !== id) })
