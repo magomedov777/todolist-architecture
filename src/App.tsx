@@ -50,9 +50,9 @@ const App: FC = () => {
         setTodolists(todolists.map(el => el.id === todolistId ? { ...el, title: updateTitle } : el))
     }, [todolists])
 
-    const removeTask = (id: string, todolistId: string) => {
+    const removeTask = useCallback((id: string, todolistId: string) => {
         setTasks({ ...tasks, [todolistId]: tasks[todolistId].filter(el => el.id !== id) })
-    }
+    }, [tasks])
 
     const addTask = (title: string, todolistId: string) => {
         let task = { id: v1(), title: title, isDone: false };
