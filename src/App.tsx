@@ -54,10 +54,10 @@ const App: FC = () => {
         setTasks({ ...tasks, [todolistId]: tasks[todolistId].filter(el => el.id !== id) })
     }, [tasks])
 
-    const addTask = (title: string, todolistId: string) => {
+    const addTask = useCallback((title: string, todolistId: string) => {
         let task = { id: v1(), title: title, isDone: false };
         setTasks({ ...tasks, [todolistId]: [task, ...tasks[todolistId]] })
-    }
+    }, [tasks])
 
     const changeStatus = (id: string, isDone: boolean, todolistId: string) => {
         setTasks({ ...tasks, [todolistId]: tasks[todolistId].map(el => el.id === id ? { ...el, isDone: isDone } : el) })
