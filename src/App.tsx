@@ -3,6 +3,7 @@ import './App.css';
 import { Todolist } from './Todolist';
 import { v1 } from 'uuid';
 import { AddItemForm } from './AddItemForm';
+import { TasksStateType } from './task-types';
 
 export type FilterValuesType = "all" | "active" | "completed";
 
@@ -12,15 +13,6 @@ type TodolistType = {
     filter: FilterValuesType
 }
 
-type TasksStateType = {
-    [key: string]: Array<TaskType>
-}
-
-export type TaskType = {
-    id: string
-    title: string
-    isDone: boolean
-}
 
 const App: FC = memo(() => {
     let todolistId1 = v1();
