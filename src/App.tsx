@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, memo, useCallback, useState } from 'react';
 import './App.css';
 import { Todolist } from './Todolist';
 import { v1 } from 'uuid';
@@ -22,7 +22,7 @@ export type TaskType = {
     isDone: boolean
 }
 
-const App: FC = () => {
+const App: FC = memo(() => {
     let todolistId1 = v1();
     let todolistId2 = v1();
 
@@ -114,6 +114,6 @@ const App: FC = () => {
 
         </div>
     );
-}
+})
 
 export default App;
