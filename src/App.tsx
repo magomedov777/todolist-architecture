@@ -49,9 +49,9 @@ const App: FC = memo(() => {
         setTasks({ ...tasks, [todolistId]: tasks[todolistId].map(el => el.id === id ? { ...el, isDone: isDone } : el) })
     }, [tasks])
 
-    const changeFilter = (value: FilterValuesType, todolistId: string) => {
+    const changeFilter = useCallback((value: FilterValuesType, todolistId: string) => {
         setTodolists(todolists.map(el => el.id === todolistId ? { ...el, filter: value } : el))
-    }
+    }, [todolists])
 
     const removeTodolist = (id: string) => {
         setTodolists(todolists.filter(el => el.id !== id))
