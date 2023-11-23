@@ -1,8 +1,9 @@
-import React, { FC } from 'react';
-import { FilterValuesType, TaskType } from './App';
+import React, { FC, useCallback } from 'react';
 import { AddItemForm } from './AddItemForm';
 import { EditableSpan } from './EditableSpan';
 import { SuperCheckbox } from './SuperCheckbox';
+import { TaskType } from './task-types';
+import { FilterValuesType } from './App';
 
 type Props = {
     id: string
@@ -29,9 +30,9 @@ export const Todolist: FC<Props> = ({ id, title, tasks,
     const onActiveClickHandler = () => changeFilter("active", id);
     const onCompletedClickHandler = () => changeFilter("completed", id);
 
-    const addTaskHandler = (updateTitle: string) => {
+    const addTaskHandler = useCallback((updateTitle: string) => {
         addTask(updateTitle, id)
-    }
+    }, [addTask, id])
 
     const updateTodolistTitleHandler = (updateTitle: string) => {
         updateTodolistTitle(id, updateTitle)
