@@ -34,9 +34,9 @@ export const Todolist: FC<Props> = ({ id, title, tasks,
         addTask(updateTitle, id)
     }, [addTask, id])
 
-    const updateTodolistTitleHandler = (updateTitle: string) => {
+    const updateTodolistTitleHandler = useCallback((updateTitle: string) => {
         updateTodolistTitle(id, updateTitle)
-    }
+    }, [id, updateTodolistTitle])
 
     const updateTaskHandler = (taskId: string, updateTitle: string) => {
         updateTask(id, taskId, updateTitle)
