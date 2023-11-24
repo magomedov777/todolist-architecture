@@ -41,8 +41,7 @@ const App: FC = memo(() => {
     }, [tasks])
 
     const addTask = useCallback((title: string, todolistId: string) => {
-        let task = { id: v1(), title: title, isDone: false };
-        setTasks({ ...tasks, [todolistId]: [task, ...tasks[todolistId]] })
+        setTasks({ ...tasks, [todolistId]: [{ id: v1(), title: title, isDone: false }, ...tasks[todolistId]] })
     }, [tasks])
 
     const changeStatus = useCallback((id: string, isDone: boolean, todolistId: string) => {
