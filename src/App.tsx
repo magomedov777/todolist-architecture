@@ -1,8 +1,8 @@
 import React, { FC, memo, useCallback, useState } from 'react';
 import './App.css';
-import { Todolist } from './Todolist';
+import { Todolist } from './components/Todolist';
 import { v1 } from 'uuid';
-import { AddItemForm } from './AddItemForm';
+import { AddItemForm } from './components/AddItemForm';
 import { TasksStateType } from './types/task-types';
 import { TodolistType } from './types/todolist-types';
 import { FilterValuesType } from './types/common-types';
