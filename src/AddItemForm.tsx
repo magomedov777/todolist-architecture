@@ -14,7 +14,7 @@ export const AddItemForm: FC<Props> = memo(({ callBack }) => {
             callBack(newTitle);
             setTitle("");
         } else {
-            setError("Title is required");
+            setError("ERROR: required field");
         }
     }
 
