@@ -1,4 +1,3 @@
-import { FilterValuesType } from "./App";
 
 export type TodolistType = {
   id: string;

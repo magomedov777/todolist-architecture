@@ -5,8 +5,8 @@ import { v1 } from 'uuid';
 import { AddItemForm } from './AddItemForm';
 import { TasksStateType } from './task-types';
 import { TodolistType } from './todolist-types';
+import { FilterValuesType } from './common-types';
 
-export type FilterValuesType = "all" | "active" | "completed";
 
 const App: FC = memo(() => {
     let todolistId1 = v1();

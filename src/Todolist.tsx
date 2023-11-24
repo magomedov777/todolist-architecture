@@ -3,7 +3,7 @@ import { AddItemForm } from './AddItemForm';
 import { EditableSpan } from './EditableSpan';
 import { SuperCheckbox } from './SuperCheckbox';
 import { TaskType } from './task-types';
-import { FilterValuesType } from './App';
+import { FilterValuesType } from './common-types';
 
 type Props = {
     id: string
