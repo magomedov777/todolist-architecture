@@ -42,9 +42,9 @@ export const Todolist: FC<Props> = memo(({ id, title, tasks,
         updateTask(id, taskId, updateTitle)
     }, [id, updateTask])
 
-    const onChangeHandler = (tID: string, newIsDone: boolean) => {
+    const onChangeHandler = useCallback((tID: string, newIsDone: boolean) => {
         changeTaskStatus(tID, newIsDone, id);
-    }
+    }, [changeTaskStatus, id])
 
     return <div>
         <h3>
