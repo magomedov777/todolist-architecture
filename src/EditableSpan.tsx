@@ -1,10 +1,10 @@
-import React, { ChangeEvent, FC, useState } from 'react';
+import React, { ChangeEvent, FC, memo, useState } from 'react';
 
 type Props = {
     oldTitle: string
     callBack: (updateTitle: string) => void
 }
-export const EditableSpan: FC<Props> = ({ oldTitle, callBack }) => {
+export const EditableSpan: FC<Props> = memo(({ oldTitle, callBack }) => {
     const [updateTitle, setUpdateTitle] = useState(oldTitle)
     const [edit, setEdit] = useState(false)
     const onDoubleClickHandler = () => {
@@ -25,4 +25,4 @@ export const EditableSpan: FC<Props> = ({ oldTitle, callBack }) => {
             ? <input value={updateTitle} onBlur={onDoubleClickHandler} onChange={onChangeHandler} type="text" autoFocus />
             : <span onDoubleClick={onDoubleClickHandler}>{oldTitle}</span>
     )
-}
+})
