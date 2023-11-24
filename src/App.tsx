@@ -59,8 +59,8 @@ const App: FC = memo(() => {
 
     const addTodolistHandler = useCallback((newTitle: string) => {
         const newTodolistId = v1()
-        const newTodolist: TodolistType = { id: newTodolistId, title: newTitle, filter: "all" }
-        setTodolists([newTodolist, ...todolists])
+        // const newTodolist: TodolistType = { id: newTodolistId, title: newTitle, filter: "all" }
+        setTodolists([{ id: newTodolistId, title: newTitle, filter: "all" }, ...todolists])
         setTasks({ ...tasks, [newTodolistId]: [] })
     }, [tasks, todolists])
 
