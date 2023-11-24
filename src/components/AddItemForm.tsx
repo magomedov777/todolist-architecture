@@ -19,8 +19,7 @@ export const AddItemForm: FC<Props> = memo(({ callBack }) => {
     }
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        const value = e.currentTarget.value
-        setTitle(value)
+        setTitle(e.currentTarget.value)
     }
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
