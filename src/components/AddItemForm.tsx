@@ -1,10 +1,10 @@
-import React, { ChangeEvent, FC, KeyboardEvent, useState } from 'react';
+import React, { ChangeEvent, FC, KeyboardEvent, memo, useState } from 'react';
 
 type Props = {
     callBack: (newTitle: string) => void
 }
 
-export const AddItemForm: FC<Props> = ({ callBack }) => {
+export const AddItemForm: FC<Props> = memo(({ callBack }) => {
     let [title, setTitle] = useState("")
     let [error, setError] = useState<string | null>(null)
 
@@ -14,12 +14,13 @@ export const AddItemForm: FC<Props> = ({ callBack }) => {
             callBack(newTitle);
             setTitle("");
         } else {
-            setError("Title is required");
+            setError("ERROR: required field");
         }
     }
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setTitle(e.currentTarget.value)
+        const value = e.currentTarget.value
+        setTitle(value)
     }
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -39,4 +40,4 @@ export const AddItemForm: FC<Props> = ({ callBack }) => {
             {error && <div className="error-message">{error}</div>}
         </div>
     )
-}
+})

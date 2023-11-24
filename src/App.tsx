@@ -1,12 +1,12 @@
 import React, { FC, memo, useCallback, useState } from 'react';
 import './App.css';
-import { Todolist } from './Todolist';
+import { Todolist } from './components/Todolist';
 import { v1 } from 'uuid';
-import { AddItemForm } from './AddItemForm';
-import { TasksStateType } from './task-types';
-import { TodolistType } from './todolist-types';
+import { AddItemForm } from './components/AddItemForm';
+import { TasksStateType } from './types/task-types';
+import { TodolistType } from './types/todolist-types';
+import { FilterValuesType } from './types/common-types';
 
-export type FilterValuesType = "all" | "active" | "completed";
 
 const App: FC = memo(() => {
     let todolistId1 = v1();
@@ -41,8 +41,7 @@ const App: FC = memo(() => {
     }, [tasks])
 
     const addTask = useCallback((title: string, todolistId: string) => {
-        let task = { id: v1(), title: title, isDone: false };
-        setTasks({ ...tasks, [todolistId]: [task, ...tasks[todolistId]] })
+        setTasks({ ...tasks, [todolistId]: [{ id: v1(), title: title, isDone: false }, ...tasks[todolistId]] })
     }, [tasks])
 
     const changeStatus = useCallback((id: string, isDone: boolean, todolistId: string) => {
@@ -60,8 +59,8 @@ const App: FC = memo(() => {
 
     const addTodolistHandler = useCallback((newTitle: string) => {
         const newTodolistId = v1()
-        const newTodolist: TodolistType = { id: newTodolistId, title: newTitle, filter: "all" }
-        setTodolists([newTodolist, ...todolists])
+        // const newTodolist: TodolistType = { id: newTodolistId, title: newTitle, filter: "all" }
+        setTodolists([{ id: newTodolistId, title: newTitle, filter: "all" }, ...todolists])
         setTasks({ ...tasks, [newTodolistId]: [] })
     }, [tasks, todolists])
 

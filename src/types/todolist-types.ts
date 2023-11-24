@@ -1,4 +1,4 @@
-import { FilterValuesType } from "./App";
+import { FilterValuesType } from "./common-types";
 
 export type TodolistType = {
   id: string;

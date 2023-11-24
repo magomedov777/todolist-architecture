@@ -2,8 +2,8 @@ import React, { FC, memo, useCallback } from 'react';
 import { AddItemForm } from './AddItemForm';
 import { EditableSpan } from './EditableSpan';
 import { SuperCheckbox } from './SuperCheckbox';
-import { TaskType } from './task-types';
-import { FilterValuesType } from './App';
+import { TaskType } from '../types/task-types';
+import { FilterValuesType } from '../types/common-types';
 
 type Props = {
     id: string
