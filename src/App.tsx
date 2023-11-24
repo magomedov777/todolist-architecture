@@ -3,9 +3,9 @@ import './App.css';
 import { Todolist } from './Todolist';
 import { v1 } from 'uuid';
 import { AddItemForm } from './AddItemForm';
-import { TasksStateType } from './task-types';
-import { TodolistType } from './todolist-types';
-import { FilterValuesType } from './common-types';
+import { TasksStateType } from './types/task-types';
+import { TodolistType } from './types/todolist-types';
+import { FilterValuesType } from './types/common-types';
 
 
 const App: FC = memo(() => {
