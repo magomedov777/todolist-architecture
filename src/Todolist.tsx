@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC, memo, useCallback } from 'react';
 import { AddItemForm } from './AddItemForm';
 import { EditableSpan } from './EditableSpan';
 import { SuperCheckbox } from './SuperCheckbox';
@@ -19,7 +19,7 @@ type Props = {
     filter: FilterValuesType
 }
 
-export const Todolist: FC<Props> = ({ id, title, tasks,
+export const Todolist: FC<Props> = memo(({ id, title, tasks,
     removeTask, changeFilter, addTask,
     changeTaskStatus, updateTask, updateTodolistTitle,
     removeTodolist, filter }) => {
@@ -76,6 +76,6 @@ export const Todolist: FC<Props> = ({ id, title, tasks,
             </button>
         </div>
     </div>
-}
+})
 
 
